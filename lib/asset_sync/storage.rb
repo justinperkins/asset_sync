@@ -183,7 +183,7 @@ module AssetSync
           log "Uploading: #{f} instead of #{gzipped} (compression increases this file by #{percentage}%)"
         end
       else
-        if !config.gzip? && File.extname(f) == ".gz"
+        if !config.gzip? && %w{ .jgz .cgz }.include? File.extname(f)
           # set content encoding for gzipped files this allows cloudfront to properly handle requests with Accept-Encoding
           # http://docs.amazonwebservices.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html
           uncompressed_filename = f[0..-4]
