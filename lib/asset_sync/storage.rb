@@ -186,7 +186,7 @@ module AssetSync
         if !config.gzip? && %w{ .jgz .cgz }.include?(File.extname(f))
           # set content encoding for gzipped files this allows cloudfront to properly handle requests with Accept-Encoding
           # http://docs.amazonwebservices.com/AmazonCloudFront/latest/DeveloperGuide/ServingCompressedFiles.html
-          uncompressed_filename = f[0..-4]
+          uncompressed_filename = f[0..-5]
           ext = File.extname(uncompressed_filename)[1..-1]
           mime = MultiMime.lookup(ext)
           file.merge!({
