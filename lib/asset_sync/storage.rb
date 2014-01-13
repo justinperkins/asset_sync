@@ -194,7 +194,7 @@ module AssetSync
             :content_encoding => 'gzip'
           })
         end
-        log "Uploading: #{f}"
+        log "Uploading: #{f}, with options #{file.inspect}"
       end
 
       if config.aws? && config.aws_rrs?
